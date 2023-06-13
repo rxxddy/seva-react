@@ -6,7 +6,7 @@ import EditableGridLayout from "../components/editable-grid-layout";
 
 const Home = () => {
   let initial = [
-    { i: "xyi", x: 0, y: 0, w: 6, h: 2 },
+    { i: "x", x: 0, y: 0, w: 6, h: 2 },
     { i: "a", x: 0, y: 2, w: 1, h: 2 },
     { i: "b", x: 1, y: 3, w: 3, h: 2 },
     { i: "c", x: 4, y: 2, w: 2, h: 2 },
