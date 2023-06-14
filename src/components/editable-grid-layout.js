@@ -18,7 +18,7 @@ const EditableGridLayout = ({ layout, onLayoutChange }) => {
       className="layout"
       layout={layout}
       rowHeight={50}
-      width={800}
+      width={780}
       onLayoutChange={onLayoutChange}
     >
       {_.map(layout, (el) => createElement(el))}
