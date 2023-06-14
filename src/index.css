@@ -11,6 +11,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-color: black; /* Set the background color of the body element to black */
+}
+
+body > *:not(body) {
+  background-color: black; /* Set the background color of all elements inside the body except body itself to white */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

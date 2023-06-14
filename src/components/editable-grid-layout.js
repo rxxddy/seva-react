@@ -6,7 +6,7 @@ import { Card, CardContent } from "@material-ui/core";
 const EditableGridLayout = ({ layout, onLayoutChange }) => {
   const createElement = (el) => {
     return (
-      <Card elevation={3} key={el.i}>
+      <Card elevation={3} key={el.i} style={{ backgroundColor: "#181818"}}>
         <CardContent>{el.i}</CardContent>
       </Card>
     );
@@ -18,8 +18,9 @@ const EditableGridLayout = ({ layout, onLayoutChange }) => {
       className="layout"
       layout={layout}
       rowHeight={50}
-      width={780}
+      width={910}
       onLayoutChange={onLayoutChange}
+      style={{}}
     >
       {_.map(layout, (el) => createElement(el))}
     </GridLayout>
