@@ -5,9 +5,12 @@ import { Card, CardContent } from "@material-ui/core";
 
 const EditableGridLayout = ({ layout, onLayoutChange }) => {
   const createElement = (el) => {
+    const Component = require(`./components/${el.i}`).default; // Dynamically require the component
     return (
-      <Card elevation={3} key={el.i} style={{ backgroundColor: "#181818"}}>
-        <CardContent>{el.i}</CardContent>
+      <Card elevation={3} key={el.i} style={{ backgroundColor: "#181818", padding: "0"}} className="rounded-xl">
+        <CardContent className="p-0 h-full">
+          <Component/>
+        </CardContent>
       </Card>
     );
   };

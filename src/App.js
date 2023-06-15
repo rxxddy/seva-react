@@ -1,10 +1,10 @@
 import React from "react";
-import {BrowserRouter, Routes , Route, Link } from "react-router-dom";
+import {BrowserRouter, Routes , Route } from "react-router-dom";
 import Home from "./components/home";
 import "./styles.css";
 import PersonIcon from '@material-ui/icons/Person';
 import AddIcon from '@material-ui/icons/Add';
-
+import { Scrollbars } from 'react-custom-scrollbars';
 
 export default function App() {
   
@@ -95,9 +95,9 @@ export default function App() {
           </div>
 
           
-          <div className="basis-7/12 flex bg-[#343434] rounded-3xl">
+          <div className="w-7/12 flex bg-[#343434] rounded-3xl h-[80vh] overflow-y-auto" style={{ scrollbarWidth: "thin", scrollbarColor: "transparent" }}>
             <Routes>
-              <Route path="/" exact element={<Home/>} />
+              <Route path="/" exact element={<Home />} />
             </Routes>
           </div>
         </div>

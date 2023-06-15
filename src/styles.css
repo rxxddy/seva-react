@@ -5,6 +5,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap');
 
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #DE9CED;
+  border-radius: 2px;
+}
+
 body {
   font-family: 'Lexend Giga', sans-serif;
 }
