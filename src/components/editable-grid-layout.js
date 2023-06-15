@@ -18,7 +18,7 @@ const EditableGridLayout = ({ layout, onLayoutChange }) => {
       className="layout"
       layout={layout}
       rowHeight={50}
-      width={910}
+      width={900}
       onLayoutChange={onLayoutChange}
       style={{}}
     >

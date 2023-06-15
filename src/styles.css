@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap');
+
+body {
+  font-family: 'Lexend Giga', sans-serif;
+}
+
 body {
   background-color: black; /* Set the background color of the body element to black */
 }
