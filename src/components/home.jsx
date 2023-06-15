@@ -1,8 +1,9 @@
 import { Fab } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 // import { random } from "lodash";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import EditableGridLayout from "../components/editable-grid-layout";
+import Cookies from "js-cookie";
 
 const Home = () => {
   let initial = [
@@ -15,9 +16,28 @@ const Home = () => {
   const [layout, setLayout] = useState(initial);
   const [counter, setCounter] = useState(0);
 
+
+  // Load layout from cookies if it exists
+  useEffect(() => {
+    const savedLayout = Cookies.get("layout");
+    if (savedLayout) {
+      setLayout(JSON.parse(savedLayout));
+    }
+  }, []);
+
+  // Save layout to cookies whenever it changes
+  useEffect(() => {
+    Cookies.set("layout", JSON.stringify(layout));
+  }, [layout]);
+
   const onLayoutChange = (newLayout) => {
     console.log(newLayout);
     setLayout(newLayout);
+  };
+
+  const resetLayout = () => {
+    setLayout(initial);
+    Cookies.remove("layout");
   };
 
   // const onAddItem = () => {
@@ -39,7 +59,7 @@ const Home = () => {
 
   return (
     <>
-      
+      <button onClick={resetLayout} className="absolute">Reset Positions</button>
       <EditableGridLayout layout={layout} onLayoutChange={onLayoutChange} style={{ backgroundColor: "white"}}/>
       {/* <Fab
         color="inherit"
@@ -53,5 +73,7 @@ const Home = () => {
     </>
   );
 };
+
+
 
 export default Home;

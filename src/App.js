@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {BrowserRouter, Routes , Route } from "react-router-dom";
 import Home from "./components/home";
 import "./styles.css";
 import PersonIcon from '@material-ui/icons/Person';
 import AddIcon from '@material-ui/icons/Add';
 import { Scrollbars } from 'react-custom-scrollbars';
+
+
+import { Fab } from "@material-ui/core";
+// import { random } from "lodash";
+
+import EditableGridLayout from "./components/editable-grid-layout";
+import Cookies from "js-cookie";
 
 export default function App() {
   
@@ -15,6 +22,40 @@ export default function App() {
     { number: 4, account: 'billy228', types: ['buy']},
     { number: 5, account: 'vasyaae', types: ['buy']},
   ];
+
+  let initial = [
+    { i: "component1", x: 0, y: 0, w: 6, h: 10, maxH: 14 },
+    { i: "component2", x: 7, y: 0, w: 6, h: 6, maxH: 14 },
+    { i: "component3", x: 7, y: 5, w: 6, h: 4, maxH: 14 },
+    { i: "component4", x: 0, y: 10, w: 8, h: 3, maxH: 14 },
+    { i: "component5", x: 9, y: 10, w: 4, h: 3, maxH: 14 }
+  ];
+  const [layout, setLayout] = useState(initial);
+  const [counter, setCounter] = useState(0);
+
+
+  // Load layout from cookies if it exists
+  useEffect(() => {
+    const savedLayout = Cookies.get("layout");
+    if (savedLayout) {
+      setLayout(JSON.parse(savedLayout));
+    }
+  }, []);
+
+  // Save layout to cookies whenever it changes
+  useEffect(() => {
+    Cookies.set("layout", JSON.stringify(layout));
+  }, [layout]);
+
+  const onLayoutChange = (newLayout) => {
+    console.log(newLayout);
+    setLayout(newLayout);
+  };
+
+  const resetLayout = () => {
+    setLayout(initial);
+    Cookies.remove("layout");
+  };
 
   return (
     <div className="App h-[100vh]">
@@ -119,9 +160,9 @@ export default function App() {
 
           
           <div className="w-7/12 flex bg-[#343434] rounded-3xl h-[80vh] overflow-y-auto" style={{ scrollbarWidth: "thin", scrollbarColor: "transparent" }}>
-            <Routes>
-              <Route path="/" exact element={<Home />} />
-            </Routes>
+            <div>
+            <EditableGridLayout layout={layout} onLayoutChange={onLayoutChange} style={{ backgroundColor: "white"}}/>
+            </div>
           </div>
         </div>
 
