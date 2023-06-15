@@ -36,7 +36,7 @@ const EditableGridLayout = ({ layout, onLayoutChange }) => {
       style={{ backgroundColor: "#181818", padding: "0" }}
       className={`rounded-xl border-2 ${borderColor}`}
     >
-      <CardContent className="p-0 h-full">
+      <CardContent className="p-0 h-full ">
         <Component />
       </CardContent>
     </Card>

@@ -9,17 +9,18 @@ import { Scrollbars } from 'react-custom-scrollbars';
 export default function App() {
   
   let accounts = [
-    { number: 1, account: 'giga235', type: 'sell', instrument: 2 },
-    { number: 2, account: 'hokker21', type: 'sell', instrument: 2 },
-    { number: 3, account: 'kolomba4', type: 'buy', instrument: 9 },
-    { number: 4, account: 'gondorash2345', type: 'buy', instrument: 7 },
+    { number: 1, account: 'nugga234', types: ['sell']},
+    { number: 2, account: 'ue2358', types: ['sell']},
+    { number: 3, account: 'stmfckr', types: ['buy', 'sell'], instrument: 9 },
+    { number: 4, account: 'billy228', types: ['buy']},
+    { number: 5, account: 'vasyaae', types: ['buy']},
   ];
 
   return (
     <div className="App h-[100vh]">
       <BrowserRouter>
         
-        <div className="flex flex-row m-auto w-[80%] mt-16 mb-4 rounded-3xl gap-10">
+        <div className="flex flex-row m-auto w-[80%] mt-8 mb-4 rounded-3xl gap-10">
           {/* <div className="basis-1/12 bg-[#343434] rounded-2xl flex h-16 text-[white] items-center">01</div> */}
           {/* <div className="basis-4/12 bg-[#343434] rounded-2xl flex h-16 text-[white] items-center">02</div> */}
           <div className="contents flex-row m-auto w-[50%] mt-16 mb-4 rounded-3xl gap-10">
@@ -74,8 +75,30 @@ export default function App() {
                 <div key={item.number} className="flex p-2 text-[#E5E5E5] mt-2 items-center">
                   <div className="w-2/12 flex justify-center">{item.number}</div>
                   <div className="w-4/12 ">{item.account}</div>
-                  <div className="w-3/12 flex justify-center">{item.type}</div>
-                  <div className="w-4/12 flex justify-center">{item.instrument}</div>
+                  <div className="w-3/12 flex justify-center">
+                    {item.types.map((type) => (
+                      <p
+                        key={type}
+                        className={`p-1 mx-1 rounded-full text-[#252525] ${type === 'buy' ? 'bg-[#4DD592]' : 'bg-[#FFCC4A]'}`}
+                      >
+                        {type}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="w-4/12 flex justify-center">
+                    <div className="relative ml-2">
+                      <div className="w-[0.8em] h-[0.8em] rounded-sm p-1 bg-[#DE9CED]"></div>
+                      <div className="absolute top-[0.1em] right-[0.1em] w-[0.8em] h-[0.8em] rounded-sm p-1 bg-gray-700"></div>
+                    </div>
+                    <div className="relative ml-2">
+                      <div className="w-[0.8em] h-[0.8em] rounded-sm p-1 bg-[#4DD592]"></div>
+                      <div className="absolute top-[0.1em] right-[0.1em] w-[0.8em] h-[0.8em] rounded-sm p-1 bg-gray-700"></div>
+                    </div>
+                    <div className="relative ml-2">
+                      <div className="w-[0.8em] h-[0.8em] rounded-sm p-1 bg-[#FFCC4A]"></div>
+                      <div className="absolute top-[0.1em] right-[0.1em] w-[0.8em] h-[0.8em] rounded-sm p-1 bg-gray-700"></div>
+                    </div>
+                  </div>
                 </div>
               ))}
              
