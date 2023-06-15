@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {BrowserRouter, Routes , Route } from "react-router-dom";
-import Home from "./components/home";
+
 import "./styles.css";
 import PersonIcon from '@material-ui/icons/Person';
 import AddIcon from '@material-ui/icons/Add';
-import { Scrollbars } from 'react-custom-scrollbars';
 
-
-import { Fab } from "@material-ui/core";
 // import { random } from "lodash";
 
 import EditableGridLayout from "./components/editable-grid-layout";
@@ -79,7 +76,7 @@ export default function App() {
           </div>
           <div className="contents flex-row m-auto w-[50%] mt-16 mb-4 rounded-3xl gap-10">
             <div className="basis-4/6 flex bg-[#343434] rounded-2xl h-16 text-[white] items-center">
-            
+              <button onClick={resetLayout} className="bg-black w-[3.2em] h-[3.2em] ml-8 rounded-md text-md flex justify-center items-center">R</button>
             </div>
             <div className="basis-2/6 bg-[#343434] rounded-2xl flex h-16 text-[white] items-center justify-between p-4">
               <div>
