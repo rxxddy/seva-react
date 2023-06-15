@@ -20,7 +20,7 @@ const Component1 = () => {
       
         {items.map((item, index) => (
           <div className="flex items-end my-4 p-4">
-            <div className="w-[2em] h-[2em]">
+            <div className="w-[2em] h-[2em] mr-1">
               <div className="rounded-full bg-[#FFCC4A] w-full h-full flex justify-center items-center">
                 <p key={index}>{item.account}</p>
               </div>

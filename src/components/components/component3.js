@@ -21,7 +21,7 @@ const Component3 = () => {
     <p className="m-auto">69%</p>
   </div>
     <div className="w-full p-1 text-[#FFCC4A]">
-      <div className="w-full rounded-xl border-[#FFCC4A] border-2">
+      <div className="w-full rounded-2xl border-[#FFCC4A] border-2">
         <div className="bg-[#FFCC4A] p-6 rounded-xl" style={{ width: filledWidth }}></div>
       </div>
     </div>
